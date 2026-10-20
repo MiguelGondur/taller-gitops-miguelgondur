@@ -82,3 +82,19 @@ src_base/
     ├── base.html       # Plantilla base con Bootstrap 5
     └── index.html      # Directorio y formulario de estudiantes
 ```
+
+---
+
+## Estrategia de Ramificación: Trunk-Based Development
+
+Este repositorio usa **Trunk-Based Development**:
+
+* `main` es el tronco único y siempre debe estar en verde. Solo recibe cambios mediante Pull Request.
+* El trabajo se hace en ramas de vida corta (`feat/...`, `ci/...`) creadas desde `main`.
+* Cada rama se integra a `main` por Pull Request, con el pipeline de CI en verde.
+* Commits semánticos: `feat:`, `ci:`, `test:`, `docs:`, `chore:`.
+
+## Integración Continua
+
+El workflow `.github/workflows/ci.yml` se ejecuta en cada `pull_request` y `push` hacia `main`:
+Python 3.11, instalación de dependencias con caché, `pytest -v` y cobertura mínima del 80 %.
